@@ -96,6 +96,14 @@ export class MyMovieContentsService {
   //Playing with the FILMSTARS :::: full documentation from https://developers.themoviedb.org/3/
   //============================================================================================
 
+  public sharedSearchPeople(searchQuery) {
+    this.searchPeople(searchQuery)
+      .subscribe(response => {
+        console.log('sharedSearchPeople')
+        console.log(response.results)
+        this.sharedSearchResult = response.results;
+      })
+  }
 
   //https://developers.themoviedb.org/3/people/get-popular-people
   public getPopularPeople() {
@@ -106,11 +114,18 @@ export class MyMovieContentsService {
   // https://developers.themoviedb.org/3/people/get-latest-person
   public getLatestPerson() {
     return this.jsonp.get(this.baseUrl + this.person + 'latest' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
   }
 
   //https://developers.themoviedb.org/3/people/get-person-details
   public getPersonDetails(id) {
     return this.jsonp.get(this.baseUrl + this.person + id + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
+  }
+
+  //https://developers.themoviedb.org/3/search/search-people
+    public searchPeople(query) {
+    return this.jsonp.get(this.baseUrl + 'search/person' + this.jsonpCallback + '&query=' + query + this.sortByQueryAddon + this.apiKey)
       .map(result => result.json())
   }
 

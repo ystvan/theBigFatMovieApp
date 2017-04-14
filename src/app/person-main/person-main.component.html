@@ -1,3 +1,76 @@
-<p>
-  person-main works!
-</p>
+<div class="container-fluid">
+
+  
+  <h1>Start your browsing here</h1>
+
+<form (submit)="searchPeople()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input name="searchQuery" type="text" class="form-control" placeholder="search for name" autocomplete="off" [(ngModel)]="searchQuery"
+            (keyup)=autocompleteSearchPeople()>
+          <span class="input-group-btn">
+              <button class="btn btn-default search-button" type="submit">Search</button>
+            </span>
+        </div>
+        <div class="suggestions" *ngIf="autocompletePeople.length > 0">
+          <ul>
+            <!--Usage of my custom pipe as a helper filter-->
+            <li *ngFor="let person of (autocompletePeople | filter: searchQuery)">
+              <a (click)="select(person.name)">{{person.name}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!--end of searchformular-->
+
+</div>
+<!--end of container-->
+
+<!--nice example of a Sub-Component-->
+<br>
+<br>
+
+<app-person-result></app-person-result>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Latest People</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="latestPeople">
+      <div *ngFor="let person of latestPeople, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+         <a href="#" routerLink="/person/{{person.id}}" >
+          <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
+        </a>
+        <h4 class="text-center">{{person.name}}</h4>
+
+        <!--Turning rating numbers into stars are not working yet unfortunately-->
+        <p class="text-center" ><strong>Rating: </strong><{{person.popularity}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Popular People</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="popularPeople">
+      <div *ngFor="let person of popularPeople, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+          <a href="#" routerLink="/person/{{person.id}}" >
+            <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
+          </a>
+          <h4 class="text-center">{{person.name}}</h4>
+          <p class="text-center"><strong>Rating: </strong>{{person.popularity}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

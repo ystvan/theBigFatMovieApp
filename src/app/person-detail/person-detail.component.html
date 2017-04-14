@@ -1,3 +1,48 @@
-<p>
-  person-detail works!
-</p>
+<app-person-result></app-person-result> 
+
+<div *ngIf="person">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="text-center">{{person.name}}</h2>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+
+        <div class="col-md-6">
+          <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w500/{{person.profile_path}}">
+        </div>
+
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Name:</strong> {{person.name}}
+            </li>
+            <li class="list-group-item">
+              <strong>biography:</strong> {{person.biography}}
+            </li>
+            <li class="list-group-item">
+              <strong>Birthday </strong> {{person.birthday}}
+            </li>
+            <li class="list-group-item">
+              <strong>Genres:</strong> <span *ngFor="let gen of person.genres">{{gen.name}} </span>
+            </li>
+            <li class="list-group-item">
+              <strong>Popularity</strong> {{person.popularity}}
+            </li>
+            
+          </ul>
+
+        <a href="#" routerLink="/persons-main" class="btn btn-primary btn-lg btn-block">Back to persons</a>
+       
+       
+
+
+          <hr />
+
+          <a *ngIf="person.homepage" href="{{person.homepage}}" target="_blank" class="btn btn-primary btn-lg btn-block">person Homepage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  
