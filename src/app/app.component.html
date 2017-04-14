@@ -16,6 +16,10 @@
             width="150" height="150"> </h1>
         <p>Assignment III. for web dev lecture</p>
 
+        <nav class="nav navbar-nav">
+          <a routerLink="/movies-main" routerLinkActive="active" class="btn btn-danger">Movies</a>
+          <a routerLink="/person-main" routerLinkActive="active" class="btn btn-success">Filmstars</a>         
+        </nav> <!-- end of navbar-->
 
       </div>
       <!--end of jumbotron-->
@@ -31,6 +35,13 @@
   <!--end of row-->
 </div>
 <!--end of fluid container-->
+
+
+<div class='container'>
+
+  <router-outlet></router-outlet>
+
+</div> <!--end of routing-->
 
 
 

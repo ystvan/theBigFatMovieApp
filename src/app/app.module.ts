@@ -12,6 +12,8 @@ import { PersonMainComponent } from './person-main/person-main.component';
 import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonResultComponent } from './person-result/person-result.component';
 
+import { ApprouterModule } from './approuter/approuter.module';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +28,8 @@ import { PersonResultComponent } from './person-result/person-result.component';
     BrowserModule,
     FormsModule,
     HttpModule,
-    JsonpModule
+    JsonpModule,
+    ApprouterModule
   ],
   providers: [MyMovieContentsService],
   bootstrap: [AppComponent]

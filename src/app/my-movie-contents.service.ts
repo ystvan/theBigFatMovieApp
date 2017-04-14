@@ -30,9 +30,9 @@ export class MyMovieContentsService {
     this.sharedSearchResult = searchResult;
   }
 
-//=========================================================================================
-//Playing with the MOVIES :::: full documentation from https://developers.themoviedb.org/3/
-//=========================================================================================
+  //=========================================================================================
+  //Playing with the MOVIES :::: full documentation from https://developers.themoviedb.org/3/
+  //=========================================================================================
 
 
   public sharedSearchMovies(searchQuery) {
@@ -44,77 +44,75 @@ export class MyMovieContentsService {
       })
   }
 
-
-//https://developers.themoviedb.org/3/movies/get-popular-movies
-  public getPopularMovies() {
-    return this.jsonp.get(this.baseUrl + this.movie + 'popular' + this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
-
-//https://developers.themoviedb.org/3/movies/get-top-rated-movies
-  public getTopRatedMovies() {
-    return this.jsonp.get(this.baseUrl + this.movie + 'top_rated' + this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
-
-//https://developers.themoviedb.org/3/movies/get-upcoming
-  public getUpComingMovies() {
-    return this.jsonp.get(this.baseUrl + this.movie + 'upcoming' + this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
-
-//https://developers.themoviedb.org/3/movies/get-now-playing
+  //https://developers.themoviedb.org/3/movies/get-now-playing
   public getNowPlayingMovies() {
     return this.jsonp.get(this.baseUrl + this.movie + 'now_playing' + this.jsonpCallback + this.apiKey)
       .map(result => result.json())
   }
 
-//https://developers.themoviedb.org/3/search/search-movies
+  //https://developers.themoviedb.org/3/movies/get-upcoming
+  public getUpComingMovies() {
+    return this.jsonp.get(this.baseUrl + this.movie + 'upcoming' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
+  }
+
+  //https://developers.themoviedb.org/3/movies/get-popular-movies
+  public getPopularMovies() {
+    return this.jsonp.get(this.baseUrl + this.movie + 'popular' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
+  }
+
+  //https://developers.themoviedb.org/3/movies/get-top-rated-movies
+  public getTopRatedMovies() {
+    return this.jsonp.get(this.baseUrl + this.movie + 'top_rated' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
+  }
+
+  //https://developers.themoviedb.org/3/movies/get-similar-movies
+  public getSimilarMovies(id) {
+    return this.jsonp.get(this.baseUrl + this.movie + id + '/similar' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
+  }
+
+  //https://developers.themoviedb.org/3/movies/get-movie-reviews
+  public getMovieReviews(id) {
+    return this.jsonp.get(this.baseUrl + this.movie + id + '/reviews' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
+  }
+
+  //https://developers.themoviedb.org/3/search/search-movies
   public searchMovies(query) {
     return this.jsonp.get(this.baseUrl + 'search/movie' + this.jsonpCallback + '&query=' + query + this.sortByQueryAddon + this.apiKey)
       .map(result => result.json())
   }
 
-//https://developers.themoviedb.org/3/movies/get-movie-details
+  //https://developers.themoviedb.org/3/movies/get-movie-details
   public getMovieDetails(id) {
     return this.jsonp.get(this.baseUrl + this.movie + id + this.jsonpCallback + this.apiKey)
       .map(result => result.json())
   }
 
-//https://developers.themoviedb.org/3/movies/get-similar-movies
-  public getSimilarMovies(id) {
-    return this.jsonp.get(this.baseUrl + this.movie +  id + '/similar' +this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
-
-//https://developers.themoviedb.org/3/movies/get-movie-reviews
-  public getMovieReviews(id) {
-    return this.jsonp.get(this.baseUrl + this.movie + id + '/reviews' +this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
+  //============================================================================================
+  //Playing with the FILMSTARS :::: full documentation from https://developers.themoviedb.org/3/
+  //============================================================================================
 
 
-//============================================================================================
-//Playing with the FILMSTARS :::: full documentation from https://developers.themoviedb.org/3/
-//============================================================================================
-
-
-//https://developers.themoviedb.org/3/people/get-popular-people
-public getPopularPeople() {
+  //https://developers.themoviedb.org/3/people/get-popular-people
+  public getPopularPeople() {
     return this.jsonp.get(this.baseUrl + this.person + 'popular' + this.jsonpCallback + this.apiKey)
       .map(result => result.json())
   }
 
-// https://developers.themoviedb.org/3/people/get-latest-person
- public getLatestPerson(){
+  // https://developers.themoviedb.org/3/people/get-latest-person
+  public getLatestPerson() {
     return this.jsonp.get(this.baseUrl + this.person + 'latest' + this.jsonpCallback + this.apiKey)
   }
 
-//https://developers.themoviedb.org/3/people/get-person-details
- public getPersonDetails(id) {
+  //https://developers.themoviedb.org/3/people/get-person-details
+  public getPersonDetails(id) {
     return this.jsonp.get(this.baseUrl + this.person + id + this.jsonpCallback + this.apiKey)
       .map(result => result.json())
   }
 
- 
+
 }
