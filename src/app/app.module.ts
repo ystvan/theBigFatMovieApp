@@ -5,10 +5,22 @@ import { HttpModule, JsonpModule } from '@angular/http';
 import { MyMovieContentsService } from './my-movie-contents.service';
 
 import { AppComponent } from './app.component';
+import { MoviesMainComponent } from './movies-main/movies-main.component';
+import { MoviesDetailComponent } from './movies-detail/movies-detail.component';
+import { MoviesResultComponent } from './movies-result/movies-result.component';
+import { PersonMainComponent } from './person-main/person-main.component';
+import { PersonDetailComponent } from './person-detail/person-detail.component';
+import { PersonResultComponent } from './person-result/person-result.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    MoviesMainComponent,
+    MoviesDetailComponent,
+    MoviesResultComponent,
+    PersonMainComponent,
+    PersonDetailComponent,
+    PersonResultComponent
   ],
   imports: [
     BrowserModule,
