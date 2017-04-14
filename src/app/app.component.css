@@ -1,0 +1,85 @@
+h1, p, a {
+    font-family: 'Fascinate Inline', cursive;
+}
+
+.container {
+    width: 980px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+div {
+    display: block;
+}
+
+body {
+    min-width: 1020px;
+    word-wrap: break-word;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-size: 14px;
+    line-height: 1.5;
+    color: #24292e;
+    background-color: #fff;
+}
+
+.site-footer {
+    position: relative;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    margin-top: 40px;
+    font-size: 12px;
+    line-height: 1.5;
+    color: #586069;
+    border-top: 1px solid #eaecef;
+}
+
+.float-right {
+    float: right !important;
+}
+
+a {
+    color: #0366d6;
+    text-decoration: none;
+}
+
+body { 
+  padding-top: 70px; 
+}
+
+.search-button {
+  margin-left: 4px!important;
+}
+
+.suggestions ul{
+  padding: 0px;
+  margin: 0px;
+}
+.suggestions ul li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.suggestions ul li a {
+  padding:5px;
+  display: block;
+  text-decoration: none;
+  color:#7E7E7E;
+}
+
+
+
+.suggestions-nav-bar {
+  width:246px;
+}
+
+.search-result-remove-btn {
+  margin-top: -45px;
+}
