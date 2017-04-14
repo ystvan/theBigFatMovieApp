@@ -6,23 +6,28 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
 
-## Code scaffolding
+### Side infos
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive/pipe/service/class/module`.
+This single page app was made for an "HTML5 and Javascript frameworks" lecture, as a 3rd mandatory assignment.
 
-## Build
+### The requirements were the following: "":
+Your own Angular App
+The third option is to build your own WebApp. The only demands is:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+a) The app must have as minimum 3 Components. 
+b) The app must have a Service-class and use dependency injection to inject the Service into a component.
+c) The app must use the following type of bindings: - string interpolation, property binding and event binding.
+d) The app must use Routing & Navigation.
 
-## Running unit tests
+e) The app should use a HttpService (you are most welcome to use FireBase as Backend)
+f) The app should use Interface, Observable/subscribe( ), map( ) and filter( ) (RxJS)
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
+The Assignment has to be approved by me in the class or sent to me, no later than Monday, April 24, 2017 at 11.45am.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-Before running the tests make sure you are serving the app via `ng serve`.
+Enjoy 
+Henrik Høltzer 
 
-## Further help
+###
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+The app was made by using the free API services of THEMOVIEDB.ORG
