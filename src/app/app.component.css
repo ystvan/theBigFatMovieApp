@@ -48,3 +48,38 @@ a {
     color: #0366d6;
     text-decoration: none;
 }
+
+body { 
+  padding-top: 70px; 
+}
+
+.search-button {
+  margin-left: 4px!important;
+}
+
+.suggestions ul{
+  padding: 0px;
+  margin: 0px;
+}
+.suggestions ul li {
+  list-style: none;
+  padding: 0px;
+  margin: 0px;
+}
+
+.suggestions ul li a {
+  padding:5px;
+  display: block;
+  text-decoration: none;
+  color:#7E7E7E;
+}
+
+
+
+.suggestions-nav-bar {
+  width:246px;
+}
+
+.search-result-remove-btn {
+  margin-top: -45px;
+}

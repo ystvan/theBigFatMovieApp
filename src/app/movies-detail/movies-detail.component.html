@@ -1,3 +1,72 @@
-<p>
-  movies-detail works!
-</p>
+<app-movies-result></app-movies-result> 
+
+<div *ngIf="movie">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2 class="text-center">{{movie.title}}</h2>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+
+        <div class="col-md-6">
+          <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+        </div>
+
+        <div class="col-md-6">
+          <ul class="list-group">
+            <li class="list-group-item">
+              <strong>Original Title:</strong> {{movie.original_title}}
+            </li>
+            <li class="list-group-item">
+              <strong>Overview:</strong> {{movie.overview}}
+            </li>
+            <li class="list-group-item">
+              <strong>Budget:</strong> {{movie.budget}}
+            </li>
+            <li class="list-group-item">
+              <strong>Genres:</strong> <span *ngFor="let gen of movie.genres">{{gen.name}} </span>
+            </li>
+            <li class="list-group-item">
+              <strong>Release Date:</strong> {{movie.release_date}}
+            </li>
+            <li class="list-group-item">
+              <strong>Rating:</strong> {{movie.vote_average}}
+            </li>
+            <li class="list-group-item">
+              <strong>Rating count:</strong> {{movie.vote_count}}
+            </li>
+          </ul>
+
+        <a href="#" routerLink="/movies-main" class="btn btn-primary btn-lg btn-block">Back to Movies</a>
+       
+       
+
+
+          <hr />
+
+          <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-primary btn-lg btn-block">Movie Homepage</a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="similarMovies.length > 0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="text-center">Recommended Movies</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div *ngFor="let movie of similarMovies, let i = index">
+            <div *ngIf="i < 6" class="col-md-2 text-center">
+              <a href="#" routerLink="/movie/{{movie.id}}" >
+                <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+              </a>
+              <h4 class="text-center">{{movie.title}}</h4>
+              <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>

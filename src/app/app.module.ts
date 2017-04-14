@@ -14,6 +14,8 @@ import { PersonResultComponent } from './person-result/person-result.component';
 
 import { ApprouterModule } from './approuter/approuter.module';
 import { FilterPipe } from './filter.pipe';
+import { ReviewComponent } from './review/review.component';
+import { ReviewDirective } from './review.directive';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,9 @@ import { FilterPipe } from './filter.pipe';
     PersonMainComponent,
     PersonDetailComponent,
     PersonResultComponent,
-    FilterPipe
+    FilterPipe,
+    ReviewComponent,
+    ReviewDirective
   ],
   imports: [
     BrowserModule,

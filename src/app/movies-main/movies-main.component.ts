@@ -1,13 +1,16 @@
 import { Component, OnInit } from '@angular/core';
 import { MyMovieContentsService } from '../my-movie-contents.service';
+import { ReviewComponent } from '../review/review.component';
+
 
 @Component({
   selector: 'app-movies-main',
   templateUrl: './movies-main.component.html',
-  styleUrls: ['./movies-main.component.css']
+  styleUrls: ['./movies-main.component.css'],
+  providers: [ReviewComponent]
 })
 export class MoviesMainComponent implements OnInit {
-
+  pageTitle: string = '';
   nowPlayingMovies: Array<Object>;
   upComingMovies: Array<Object>;
   popularMovies: Array<Object>;
@@ -68,6 +71,10 @@ export class MoviesMainComponent implements OnInit {
     this.autocompleteMovies = [];
   }
 
+  onRatingClicked(message: string): void {
+    console.log('clicked!');
+    this.pageTitle = 'Movie list: ' + message;
+  }
 
 }
 

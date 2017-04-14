@@ -47,7 +47,6 @@
         <div *ngIf="i <= 5" class="col-md-2 text-center">
           <a href="#" routerLink="/movie/{{movie.id}}" >
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-            <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
           </a>
           <h4 class="text-center">{{movie.title}}</h4>
           <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
@@ -67,10 +66,11 @@
         <div *ngIf="i <= 5" class="col-md-2 text-center">
          <a href="#" routerLink="/movie/{{movie.id}}" >
           <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
         </a>
         <h4 class="text-center">{{movie.title}}</h4>
-        <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+
+        <!--Turning rating numbers into stars are not working yet unfortunately-->
+        <p class="text-center" ><strong>Rating: </strong><app-review [rating]="movie.vote_average" (ratingClicked)="onRatingClicked($event)"></app-review></p>
       </div>
     </div>
   </div>
@@ -106,7 +106,6 @@
         <div *ngIf="i <= 5" class="col-md-2 text-center">
          <a href="#" routerLink="/movie/{{movie.id}}" >
           <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
         </a>
         <h4 class="text-center">{{movie.title}}</h4>
         <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
