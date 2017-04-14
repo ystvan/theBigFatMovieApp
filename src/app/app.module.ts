@@ -13,6 +13,7 @@ import { PersonDetailComponent } from './person-detail/person-detail.component';
 import { PersonResultComponent } from './person-result/person-result.component';
 
 import { ApprouterModule } from './approuter/approuter.module';
+import { FilterPipe } from './filter.pipe';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { ApprouterModule } from './approuter/approuter.module';
     MoviesResultComponent,
     PersonMainComponent,
     PersonDetailComponent,
-    PersonResultComponent
+    PersonResultComponent,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -6,8 +6,8 @@ import 'rxjs/add/operator/map';
 export class MyMovieContentsService {
 
   //organizing the GET request calls, splitting the queries into separate parts, so that the code is more readable
-  private apiKey = '46493737c929707fe41b0a82c38bd029';
-  private baseUrl = 'https://api.themoviedb.org/3/';
+  private apiKey = '&api_key=46493737c929707fe41b0a82c38bd029';
+  private baseUrl = 'http://api.themoviedb.org/3/';
   private movie = 'movie/';
   private person = 'person/';
   private sortByQueryAddon = '&sort_by=popularity.desc';

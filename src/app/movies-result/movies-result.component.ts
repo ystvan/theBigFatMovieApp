@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyMovieContentsService } from '../my-movie-contents.service';
 
 @Component({
   selector: 'app-movies-result',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoviesResultComponent implements OnInit {
 
-  constructor() { }
+  constructor(private injectedService: MyMovieContentsService) { }
 
   ngOnInit() {
+  }
+
+  public removeSearchResults() {
+    this.injectedService.setSharedSearchResult([]);
   }
 
 }

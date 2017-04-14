@@ -1,3 +1,117 @@
-<p>
-  movies-main works!
-</p>
+<div class="container-fluid">
+
+  <h1>Welcome to my top-notch cinema advisor!</h1>
+  <p>Start your browsing here</p>
+
+
+  <form (submit)="searchMovies()">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="input-group">
+          <input name="searchQuery" type="text" class="form-control" placeholder="search for title" autocomplete="off" [(ngModel)]="searchQuery"
+            (keyup)=autocompleteSearchMovies()>
+          <span class="input-group-btn">
+              <button class="btn btn-default search-button" type="submit">Search</button>
+            </span>
+        </div>
+        <div class="suggestions" *ngIf="autocompleteMovies.length > 0">
+          <ul>
+            <!--Usage of my custom pipe as a helper filter-->
+            <li *ngFor="let movie of (autocompleteMovies | filter: searchQuery)">
+              <a (click)="select(movie.title)">{{movie.title}}</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </form>
+  <!--end of searchformular-->
+
+</div>
+<!--end of container-->
+
+<!--nice example of a Sub-Component-->
+
+<app-movies-result>
+
+</app-movies-result> <!--end of subcomponent-->
+
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Now Playing Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="nowPlayingMovies">
+      <div *ngFor="let movie of nowPlayingMovies, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+          <a href="#" routerLink="/movie/{{movie.id}}" >
+            <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
+          </a>
+          <h4 class="text-center">{{movie.title}}</h4>
+          <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Upcoming Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="upComingMovies">
+      <div *ngFor="let movie of upComingMovies, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+         <a href="#" routerLink="/movie/{{movie.id}}" >
+          <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+          <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
+        </a>
+        <h4 class="text-center">{{movie.title}}</h4>
+        <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Popular Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="popularMovies">
+      <div *ngFor="let movie of popularMovies, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+          <a href="#" routerLink="/movie/{{movie.id}}" >
+            <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+          </a>
+          <h4 class="text-center">{{movie.title}}</h4>
+          <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Top Rated Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="topRatedMovies">
+      <div *ngFor="let movie of topRatedMovies, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+         <a href="#" routerLink="/movie/{{movie.id}}" >
+          <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+          <img *ngIf="!movie.poster_path" class="img-thumbnail" src="http://http://ddbu.billiardport.com/img/posters/no_poster_available.jpg">
+        </a>
+        <h4 class="text-center">{{movie.title}}</h4>
+        <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
