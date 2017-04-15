@@ -27,7 +27,10 @@ export class PersonMainComponent implements OnInit {
     // first to populate the main page with top-fancy filmstars :::
 
     this.injectedService.getPopularPeople()
-      .subscribe(response => { this.popularPeople = response.results; })
+      .subscribe(response => { 
+        console.log('stepping into service call');
+        this.popularPeople = response.results; 
+      })
    
     this.injectedService.setSharedSearchResultPeople([]);
 
@@ -36,16 +39,23 @@ export class PersonMainComponent implements OnInit {
   // Implementing the search from the view
 
   searchPeople() {
+    console.log('stepping into');
     this.injectedService.searchPeople(this.searchQuery)
       .subscribe(response => {
+        console.log('getting the jsonps');
         this.injectedService.setSharedSearchResultPeople(response.results);
       })
   }
 
 // the drop down list, used for autocomplete after 3 characters with the matching criteria
+ 
   autocompleteSearchPeople() {
     if (this.searchQuery.length > 2) {
-      this.injectedService.searchPeople(this.searchQuery).subscribe(response => { this.autocompletePeople = response.results; })
+      console.log('into autocomplete');
+      this.injectedService.searchPeople(this.searchQuery).subscribe(response => { 
+        console.log('inside subsribe');
+        this.autocompletePeople = response.results; 
+      })
     } else {
       this.autocompletePeople = [];
     }

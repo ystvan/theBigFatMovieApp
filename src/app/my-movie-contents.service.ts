@@ -128,7 +128,7 @@ export class MyMovieContentsService {
 
   //https://developers.themoviedb.org/3/search/search-people
     public searchPeople(query) {
-    return this.jsonp.get(this.baseUrl + 'search/person' + this.jsonpCallback + '&query=' + query + this.sortByQueryAddon + this.apiKey)
+    return this.jsonp.get(this.baseUrl + 'search/person' + this.jsonpCallback + '&query=' + query  + this.apiKey)
       .map(result => result.json())
   }
 

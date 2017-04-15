@@ -1,3 +1,19 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Orbitron|Pacifico|Russo+One');
+
+
+.panel-heading > h3,h2,h1 {
+  color: lightgreen;
+  font-family: 'Pacifico', cursive;
+}
+
+p {
+  
+  font-family: 'Gloria Hallelujah', cursive; 
+  
+  
+}
+
+
 .search-result-remove-btn {
   margin-top: -45px;
 }

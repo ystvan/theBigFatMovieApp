@@ -14,14 +14,14 @@
               <input name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
                 (keyup)=autocompleteSearchMovies() (keyup.enter)="autocompleteSearchMovies()">
               <span class="input-group-btn">
-              <button class="btn btn-default search-button" type="submit">Search</button>
+              <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
             </span>
 
             </div> <!-- end of search input -->
             <div class="suggestions" *ngIf="autocompleteMovies.length > 0">
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
-                <li class="searchlist-item" *ngFor="let movie of (autocompleteMovies | filter: searchQuery)" (click)="select(movie.title)">
+                <li class="searchlist-item" *ngFor="let movie of autocompleteMovies" (click)="select(movie.title)">
                   <img class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
                   <div class="searchlist-info">
                                               <!--property bindings-->

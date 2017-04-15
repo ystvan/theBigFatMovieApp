@@ -40,22 +40,21 @@ export class MoviesMainComponent implements OnInit {
     this.injectedService.getUpComingMovies()
       .subscribe(response => { this.upComingMovies = response.results; })
 
-
-
     this.injectedService.setSharedSearchResultMovie([]);
-
 
   }
 
   // Implementing the search from the view
 
   searchMovies() {
-    console.log('herehere');
+    console.log('searching success');
     this.injectedService.searchMovies(this.searchQuery)
       .subscribe(response => {
         this.injectedService.setSharedSearchResultMovie(response.results);
       })
   }
+
+// the drop down list, used for autocomplete after 3 characters with the matching criteria
 
   autocompleteSearchMovies() {
     if (this.searchQuery.length > 2) {
