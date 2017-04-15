@@ -1,4 +1,6 @@
-h1, p, a {
+ @import url('https://fonts.googleapis.com/css?family=Fascinate+Inline');
+
+h1, p  {
     font-family: 'Fascinate Inline', cursive;
 }
 
