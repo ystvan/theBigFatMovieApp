@@ -1,8 +1,4 @@
 <div class="container-fluid">
-
-
-
-
   <div class="panel panel-default">
     <div class="panel-heading">
       <h3><label><span *ngIf="searchQuery" [innerHTML]="'You are searching for ' + searchQuery"></span></label></h3>
@@ -42,14 +38,14 @@
 </div>
 <!--end of container-->
 
-<!--nice example of a Sub-Component-->
+
 <br>
 <br>
 
 <app-movies-result>
-
+<!--nice example of a Sub-Component-->
 </app-movies-result>
-<!--end of subcomponent-->
+
 
 
 <div class="panel panel-default">
@@ -63,8 +59,27 @@
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
-          <h4 class="text-center">{{movie.title}}</h4>
-          <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+          <p class="text-center">{{movie.title}}</p>
+          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h3>Top Rated Movies</h3>
+  </div>
+  <div class="panel-body">
+    <div class="row" *ngIf="topRatedMovies">
+      <div *ngFor="let movie of topRatedMovies, let i = index">
+        <div *ngIf="i <= 5" class="col-md-2 text-center">
+          <a href="#" routerLink="/movie/{{movie.id}}">
+            <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+          </a>
+          <p class="text-center">{{movie.title}}</p>
+          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
         </div>
       </div>
     </div>
@@ -82,49 +97,11 @@
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
-          <h4 class="text-center">{{movie.title}}</h4>
+          <p class="text-center">{{movie.title}}</p>
 
           <!--Turning rating numbers into stars are not working yet unfortunately-->
           <!--<p class="text-center" ><strong>Rating: </strong><app-review [rating]="movie.vote_average" (ratingClicked)="onRatingClicked($event)"></app-review></p>-->
-          <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3>Popular Movies</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row" *ngIf="popularMovies">
-      <div *ngFor="let movie of popularMovies, let i = index">
-        <div *ngIf="i <= 11" class="col-md-2 text-center">
-          <a href="#" routerLink="/movie/{{movie.id}}">
-            <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          </a>
-          <h4 class="text-center">{{movie.title}}</h4>
-          <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
-
-<div class="panel panel-default">
-  <div class="panel-heading">
-    <h3>Top Rated Movies</h3>
-  </div>
-  <div class="panel-body">
-    <div class="row" *ngIf="topRatedMovies">
-      <div *ngFor="let movie of topRatedMovies, let i = index">
-        <div *ngIf="i <= 11" class="col-md-2 text-center">
-          <a href="#" routerLink="/movie/{{movie.id}}">
-            <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-          </a>
-          <h4 class="text-center">{{movie.title}}</h4>
-          <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
         </div>
       </div>
     </div>

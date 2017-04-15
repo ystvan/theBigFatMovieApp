@@ -64,12 +64,6 @@ export class MyMovieContentsService {
       .map(result => result.json())
   }
 
-  //https://developers.themoviedb.org/3/movies/get-popular-movies
-  public getPopularMovies() {
-    return this.jsonp.get(this.baseUrl + this.movie + 'popular' + this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
-
   //https://developers.themoviedb.org/3/movies/get-top-rated-movies
   public getTopRatedMovies() {
     return this.jsonp.get(this.baseUrl + this.movie + 'top_rated' + this.jsonpCallback + this.apiKey)

@@ -34,15 +34,13 @@ export class MoviesMainComponent implements OnInit {
     this.injectedService.getNowPlayingMovies()
       .subscribe(response => { this.nowPlayingMovies = response.results; })
 
+    this.injectedService.getTopRatedMovies()
+      .subscribe(response => { this.topRatedMovies = response.results; })
 
     this.injectedService.getUpComingMovies()
       .subscribe(response => { this.upComingMovies = response.results; })
 
-    this.injectedService.getPopularMovies()
-      .subscribe(response => { this.popularMovies = response.results; })
 
-    this.injectedService.getTopRatedMovies()
-      .subscribe(response => { this.topRatedMovies = response.results; })
 
     this.injectedService.setSharedSearchResultMovie([]);
 
