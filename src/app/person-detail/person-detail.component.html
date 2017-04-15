@@ -15,34 +15,50 @@
         <div class="col-md-6">
           <ul class="list-group">
             <li class="list-group-item">
-              <strong>Name:</strong> {{person.name}}
+              <strong>Name: </strong> {{person.name}}
             </li>
             <li class="list-group-item">
               <strong>biography:</strong> {{person.biography}}
             </li>
             <li class="list-group-item">
-              <strong>Birthday </strong> {{person.birthday}}
+              <strong>Birthday: </strong> {{person.birthday}}
             </li>
             <li class="list-group-item">
-              <strong>Genres:</strong> <span *ngFor="let gen of person.genres">{{gen.name}} </span>
-            </li>
-            <li class="list-group-item">
-              <strong>Popularity</strong> {{person.popularity}}
+              <strong>Popularity: </strong> {{person.popularity}}
             </li>
             
           </ul>
 
-        <a href="#" routerLink="/persons-main" class="btn btn-primary btn-lg btn-block">Back to persons</a>
+        <a href="#" routerLink="/person-main" class="btn btn-primary btn-lg btn-block">Back to persons</a>
        
        
 
 
           <hr />
 
-          <a *ngIf="person.homepage" href="{{person.homepage}}" target="_blank" class="btn btn-primary btn-lg btn-block">person Homepage</a>
+          <a *ngIf="person.homepage" href="{{person.homepage}}" target="_blank" class="btn btn-primary btn-lg btn-block">{{person.name}} Homepage</a>
         </div>
       </div>
     </div>
   </div>
-
-  
+<!--
+<div *ngIf="movieCredits.length > 0">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+      <h3 class="text-center">Appears In</h3>
+      </div>
+      <div class="panel-body">
+        <div class="row">
+          <div *ngFor="let movie of movieCredits, let i = index">
+            <div *ngIf="i < 6" class="col-md-2 text-center">
+              <a href="#" routerLink="/movie/{{movie.id}}" >
+                <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+              </a>
+              <p class="text-center">{{movie.title}}</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  -->

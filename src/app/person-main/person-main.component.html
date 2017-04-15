@@ -1,29 +1,41 @@
 <div class="container-fluid">
-
-  
-  <h1>Start your browsing here</h1>
-
-<form (submit)="searchPeople()">
-    <div class="row">
-      <div class="col-md-6">
-        <div class="input-group">
-          <input name="searchQuery" type="text" class="form-control" placeholder="search for name" autocomplete="off" [(ngModel)]="searchQuery"
-            (keyup)=autocompleteSearchPeople()>
-          <span class="input-group-btn">
-              <button class="btn btn-default search-button" type="submit">Search</button>
-            </span>
-        </div>
-        <div class="suggestions" *ngIf="autocompletePeople.length > 0">
-          <ul>
-            <!--Usage of my custom pipe as a helper filter-->
-            <li *ngFor="let person of (autocompletePeople | filter: searchQuery)">
-              <a (click)="select(person.name)">{{person.name}}</a>
-            </li>
-          </ul>
-        </div>
-      </div>
+<div class="panel panel-default">
+    <div class="panel-heading">
+                                        <!-- example of Property binding -->
+                                        <!-- This will appear as the user types into the search input  -->
+      <h3><label><span *ngIf="searchQuery" [innerHTML]="'You are searching for ' + searchQuery"></span></label></h3>
     </div>
-  </form>
+    <div class="panel-body">
+      <form (submit)="searchPeople()">
+        <div class="row">
+          <div class="col-md-6">
+            <div class="input-group">
+                                                                                                                      <!--    Two-way data binding    -->
+              <input name="searchQuery" type="text" class="form-control" placeholder="search for names" autocomplete="off" [(ngModel)]="searchQuery"
+                (keyup)=autocompleteSearchPeople() (keyup.enter)="autocompleteSearchPeople()">
+              <span class="input-group-btn">
+              <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
+            </span>
+
+            </div> <!-- end of search input -->
+            <div class="suggestions" *ngIf="autocompletePeople.length > 0">
+              <ul class="searchlist">
+                <!--Usage of my custom pipe as a helper filter-->
+                <li class="searchlist-item" *ngFor="let person of autocompletePeople" (click)="select(person.name)">
+                  <img class="searchlist-img" src="http://image.tmdb.org/t/p/w45/{{person.profile_path}}">
+                  <div class="searchlist-info">
+                                              <!--property bindings-->
+                    <p class="searchlist-name">{{person.name}}</p>
+                    <p class="searchlist-birthday">{{person.name}}</p>
+                  </div>
+                </li>
+              </ul>
+            </div> <!--  end of dropdown realtime suggestions -->
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
   <!--end of searchformular-->
 
 </div>
@@ -37,7 +49,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>Popular People</h3>
+    <h3>Top Rated Actors </h3>
   </div>
   <div class="panel-body">
     <div class="row" *ngIf="popularPeople">
@@ -47,8 +59,7 @@
           <a href="#" routerLink="/person/{{person.id}}" >
             <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
           </a>
-          <h4 class="text-center">{{person.name}}</h4>
-          <p class="text-center"><strong>Rating: </strong>{{person.popularity}}</p>
+          <p class="text-center">{{person.name}}</p>
         </div>
       </div>
     </div>

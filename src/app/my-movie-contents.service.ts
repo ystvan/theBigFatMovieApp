@@ -123,12 +123,13 @@ export class MyMovieContentsService {
 
   public getPersonMovieCredits(id) {
     return this.jsonp.get(this.baseUrl + this.person + id + '/movie_credits' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
   }
 
 
   //https://developers.themoviedb.org/3/search/search-people
     public searchPeople(query) {
-    return this.jsonp.get(this.baseUrl + 'search/person' + this.jsonpCallback + '&query=' + query + this.sortByQueryAddon + this.apiKey)
+    return this.jsonp.get(this.baseUrl + 'search/person' + this.jsonpCallback + '&query=' + query  + this.apiKey)
       .map(result => result.json())
   }
 

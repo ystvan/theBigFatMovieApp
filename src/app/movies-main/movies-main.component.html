@@ -1,6 +1,8 @@
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
+                                        <!-- example of Property binding -->
+                                        <!-- This will appear as the user types into the search input  -->
       <h3><label><span *ngIf="searchQuery" [innerHTML]="'You are searching for ' + searchQuery"></span></label></h3>
     </div>
     <div class="panel-body">
@@ -8,26 +10,27 @@
         <div class="row">
           <div class="col-md-6">
             <div class="input-group">
-
+                                                                                                                      <!--    Two-way data binding    -->
               <input name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
                 (keyup)=autocompleteSearchMovies() (keyup.enter)="autocompleteSearchMovies()">
               <span class="input-group-btn">
-              <button class="btn btn-default search-button" type="submit">Search</button>
+              <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
             </span>
 
-            </div>
+            </div> <!-- end of search input -->
             <div class="suggestions" *ngIf="autocompleteMovies.length > 0">
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
-                <li class="searchlist-item" *ngFor="let movie of (autocompleteMovies | filter: searchQuery)" (click)="select(movie.title)">
+                <li class="searchlist-item" *ngFor="let movie of autocompleteMovies" (click)="select(movie.title)">
                   <img class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
                   <div class="searchlist-info">
+                                              <!--property bindings-->
                     <p class="searchlist-title">{{movie.title}}</p>
                     <p class="searchlist-release">Release date: {{movie.release_date}}</p>
                   </div>
                 </li>
               </ul>
-            </div>
+            </div> <!--  end of dropdown realtime suggestions -->
           </div>
         </div>
       </form>
@@ -49,9 +52,11 @@
 
 
 <div class="panel panel-default">
-  <div class="panel-heading">
-    <h3>Now Playing Movies</h3>
+
+  <div class="panel-heading">  
+    <h2>Movies you can catch right now in the local cinemas</h2>
   </div>
+
   <div class="panel-body">
     <div class="row" *ngIf="nowPlayingMovies">
       <div *ngFor="let movie of nowPlayingMovies, let i = index">
@@ -69,7 +74,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>Top Rated Movies</h3>
+    <h2>Best of all timers</h2>
   </div>
   <div class="panel-body">
     <div class="row" *ngIf="topRatedMovies">
@@ -88,7 +93,7 @@
 
 <div class="panel panel-default">
   <div class="panel-heading">
-    <h3>Upcoming Movies</h3>
+    <h2>Brace yourself, hot-fresh-crispy: coming soon!</h2>
   </div>
   <div class="panel-body">
     <div class="row" *ngIf="upComingMovies">

@@ -1,0 +1,81 @@
+@import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Orbitron|Pacifico|Russo+One');
+
+
+.panel-heading > h3,h2,h1 {
+  color: goldenrod;
+  font-family: 'Pacifico', cursive;
+}
+
+p {
+  
+  font-family: 'Gloria Hallelujah', cursive; 
+  
+  
+}
+
+/*DropDown List items*/
+
+ul {
+      list-style-type: none;
+}
+
+
+.searchlist {
+  position: absolute;
+  width: 100%;
+  min-width:320px;
+  max-width: 400px;
+  left: 0;
+  right: 0;
+  margin-bottom: 30px;
+  background: rgb(132, 113, 60);
+  box-shadow: 0 1px 0 rgba(0,0,0,.25);
+  z-index: 10;
+  margin: 0 auto;
+  padding: 0;
+}
+
+.searchlist-item {
+  padding: 10px 10px 0 10px;
+  border-bottom: 1px solid #999;
+  opacity: .9;
+  transition: all 0.3s ease-out;
+}
+
+.searchlist-item:hover {
+  cursor: pointer;
+  background: rgb(237, 125, 7);
+  opacity: 1;
+  -webkit-transform: scale(1.1);
+  -moz-transform: scale(1.1);
+  -ms-transform: scale(1.1);
+  transform: scale(1.1);
+}
+
+.searchlist-item:last-child  {
+    border-bottom:none;
+}
+
+.searchlist-img {
+  width: 40px;
+  border-radius: 12px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  float: left;
+}
+
+.searchlist-info {
+  display: block;
+  margin: 5px 0;
+}
+
+.searchlist-info .searchlist-name {
+  font-size: 1.4rem; 
+  margin-top: 0;
+}
+
+.searchlist-info .searchlist-birthday {
+  font-size: 1.1rem;
+  font-weight: 400;
+  margin-top: 0;
+}

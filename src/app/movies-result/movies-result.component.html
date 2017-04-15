@@ -13,8 +13,7 @@
             <a href="#" routerLink="/movie/{{movie.id}}" >
               <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
             </a>
-            <h4 class="text-center">{{movie.title}}</h4>
-            <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+            <p class="text-center">{{movie.title}}</p>
           </div>
         </div>
       </div>

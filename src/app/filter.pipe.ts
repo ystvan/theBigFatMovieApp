@@ -9,8 +9,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class FilterPipe implements PipeTransform {
   transform(pipeData, pipeModiefier) {
     return pipeData.filter((eachItem) => {
-      return eachItem['original_title'].toLowerCase().includes(pipeModiefier.toLowerCase()) ||
-             eachItem['title'].toLowerCase().includes(pipeModiefier.toLowerCase());
+      return eachItem['title'].toLowerCase().includes(pipeModiefier.toLowerCase()) ||
+             eachItem['name'].toLowerCase().includes(pipeModiefier.toLowerCase());
     });
   }
 

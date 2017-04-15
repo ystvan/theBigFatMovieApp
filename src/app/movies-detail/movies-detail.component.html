@@ -18,7 +18,7 @@
               <strong>Original Title:</strong> {{movie.original_title}}
             </li>
             <li class="list-group-item">
-              <strong>Overview:</strong> {{movie.overview}}
+              <strong>Plot:</strong> {{movie.overview}}
             </li>
             <li class="list-group-item">
               <strong>Budget:</strong> {{movie.budget}}
@@ -37,14 +37,14 @@
             </li>
           </ul>
 
-        <a href="#" routerLink="/movies-main" class="btn btn-primary btn-lg btn-block">Back to Movies</a>
+        <a href="#" routerLink="/movies-main" class="btn btn-danger btn-lg btn-block">Back to Movies</a>
        
        
 
 
           <hr />
 
-          <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-primary btn-lg btn-block">Movie Homepage</a>
+          <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-info btn-lg btn-block">Movie Homepage</a>
         </div>
       </div>
     </div>
@@ -62,8 +62,7 @@
               <a href="#" routerLink="/movie/{{movie.id}}" >
                 <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
               </a>
-              <h4 class="text-center">{{movie.title}}</h4>
-              <p class="text-center"><strong>Rating: </strong>{{movie.vote_average}}</p>
+              <p class="text-center">{{movie.title}}</p>
             </div>
           </div>
         </div>
