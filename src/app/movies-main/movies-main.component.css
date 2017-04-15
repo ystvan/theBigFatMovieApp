@@ -1,18 +1,18 @@
 @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Orbitron|Pacifico|Russo+One');
 
 
-.panel-heading > h3 {
-  /*font-family: 'Gloria Hallelujah', cursive;*/
+.panel-heading > h3,h2,h1 {
+  color: goldenrod;
   font-family: 'Pacifico', cursive;
 }
 
 p {
-  /*font-family: 'Pacifico', cursive;*/
+  
   font-family: 'Gloria Hallelujah', cursive; 
-  /*font-family: 'Amatic SC', cursive;*/
-  /*font-family: 'Orbitron', sans-serif;*/
-  /*font-family: 'Russo One', sans-serif;*/
+  
+  
 }
+
 /*DropDown List items*/
 
 
