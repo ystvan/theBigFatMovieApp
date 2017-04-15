@@ -123,6 +123,7 @@ export class MyMovieContentsService {
 
   public getPersonMovieCredits(id) {
     return this.jsonp.get(this.baseUrl + this.person + id + '/movie_credits' + this.jsonpCallback + this.apiKey)
+      .map(result => result.json())
   }
 
 
