@@ -10,7 +10,7 @@ export class PersonMainComponent implements OnInit {
   pageTitle: string = '';
 
   popularPeople: Array<Object>;
-  latestPeople: Array<Object>;
+  
 
   searchQuery: string;
   autocompletePeople: Array<Object> = [];
@@ -28,11 +28,8 @@ export class PersonMainComponent implements OnInit {
 
     this.injectedService.getPopularPeople()
       .subscribe(response => { this.popularPeople = response.results; })
-
-    this.injectedService.getLatestPerson()
-      .subscribe(response => { this.latestPeople = response.results; })
-
-    this.injectedService.setSharedSearchResult([]);
+   
+    this.injectedService.setSharedSearchResultPeople([]);
 
   }
 
@@ -41,10 +38,11 @@ export class PersonMainComponent implements OnInit {
   searchPeople() {
     this.injectedService.searchPeople(this.searchQuery)
       .subscribe(response => {
-        this.injectedService.setSharedSearchResult(response.results);
+        this.injectedService.setSharedSearchResultPeople(response.results);
       })
   }
 
+// the drop down list, used for autocomplete after 3 characters with the matching criteria
   autocompleteSearchPeople() {
     if (this.searchQuery.length > 2) {
       this.injectedService.searchPeople(this.searchQuery).subscribe(response => { this.autocompletePeople = response.results; })

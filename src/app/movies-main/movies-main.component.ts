@@ -44,7 +44,7 @@ export class MoviesMainComponent implements OnInit {
     this.injectedService.getTopRatedMovies()
       .subscribe(response => { this.topRatedMovies = response.results; })
 
-    this.injectedService.setSharedSearchResult([]);
+    this.injectedService.setSharedSearchResultMovie([]);
 
 
   }
@@ -52,9 +52,10 @@ export class MoviesMainComponent implements OnInit {
   // Implementing the search from the view
 
   searchMovies() {
+    console.log('herehere');
     this.injectedService.searchMovies(this.searchQuery)
       .subscribe(response => {
-        this.injectedService.setSharedSearchResult(response.results);
+        this.injectedService.setSharedSearchResultMovie(response.results);
       })
   }
 

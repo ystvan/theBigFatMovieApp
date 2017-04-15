@@ -14,7 +14,8 @@ export class MyMovieContentsService {
 
   //using JSONP (as in "JSON with Padding") to bypass cross-domain policies (CORS) in web browsers
   private jsonpCallback = '?callback=JSONP_CALLBACK';
-  private sharedSearchResult: Array<Object> = [];
+  private sharedSearchResultMovie: Array<Object> = [];
+  private sharedSearchResultPeople: Array<Object> = [];
 
   constructor(private jsonp: Jsonp) {
     console.log('successful service')
@@ -22,14 +23,21 @@ export class MyMovieContentsService {
 
 
 
-  public getSharedSearchResult() {
-    return this.sharedSearchResult;
+  public getSharedSearchResultMovie() {
+    return this.sharedSearchResultMovie;
   }
 
-  public setSharedSearchResult(searchResult) {
-    this.sharedSearchResult = searchResult;
+  public setSharedSearchResultMovie(searchResult) {
+    this.sharedSearchResultMovie = searchResult;
   }
 
+  public setSharedSearchResultPeople(searchResult) {
+    this.sharedSearchResultPeople = searchResult;
+  }
+
+  public getSharedSearchResultPeople() {
+    return this.sharedSearchResultPeople;
+  }
   //=========================================================================================
   //Playing with the MOVIES :::: full documentation from https://developers.themoviedb.org/3/
   //=========================================================================================
@@ -40,7 +48,7 @@ export class MyMovieContentsService {
       .subscribe(response => {
         console.log('sharedSearchMovies')
         console.log(response.results)
-        this.sharedSearchResult = response.results;
+        this.sharedSearchResultMovie = response.results;
       })
   }
 
@@ -101,7 +109,7 @@ export class MyMovieContentsService {
       .subscribe(response => {
         console.log('sharedSearchPeople')
         console.log(response.results)
-        this.sharedSearchResult = response.results;
+        this.sharedSearchResultPeople = response.results;
       })
   }
 
@@ -111,17 +119,18 @@ export class MyMovieContentsService {
       .map(result => result.json())
   }
 
-  // https://developers.themoviedb.org/3/people/get-latest-person
-  public getLatestPerson() {
-    return this.jsonp.get(this.baseUrl + this.person + 'latest' + this.jsonpCallback + this.apiKey)
-      .map(result => result.json())
-  }
-
   //https://developers.themoviedb.org/3/people/get-person-details
   public getPersonDetails(id) {
     return this.jsonp.get(this.baseUrl + this.person + id + this.jsonpCallback + this.apiKey)
       .map(result => result.json())
   }
+
+  //https://developers.themoviedb.org/3/people/get-person-movie-credits
+
+  public getPersonMovieCredits(id) {
+    return this.jsonp.get(this.baseUrl + this.person + id + '/movie_credits' + this.jsonpCallback + this.apiKey)
+  }
+
 
   //https://developers.themoviedb.org/3/search/search-people
     public searchPeople(query) {

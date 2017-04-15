@@ -13,7 +13,7 @@ export class PersonResultComponent implements OnInit {
   ngOnInit() {
   }
   public removeSearchResults() {
-    this.injectedService.setSharedSearchResult([]);
+    this.injectedService.setSharedSearchResultPeople([]);
   }
 
 }

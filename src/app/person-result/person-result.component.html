@@ -1,4 +1,4 @@
-<div *ngIf="injectedService.sharedSearchResult.length > 1">
+<div *ngIf="injectedService.sharedSearchResultPeople.length > 1">
 <div class="panel panel-default">
     <div class="panel-heading">
       <h3>Search Results</h3>
@@ -8,7 +8,7 @@
     </div>
     <div class="panel-body">
       <div class="row">
-        <div *ngFor="let person of injectedService.sharedSearchResult, let i = index">
+        <div *ngFor="let person of injectedService.sharedSearchResultPeople, let i = index">
           <div class="col-md-2 text-center arrange">
             <a href="#" routerLink="/person/{{person.id}}" >
               <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
