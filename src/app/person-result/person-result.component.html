@@ -1,3 +1,23 @@
-<p>
-  person-result works!
-</p>
+<div *ngIf="injectedService.sharedSearchResultPeople.length > 1">
+<div class="panel panel-default">
+    <div class="panel-heading">
+      <h3>Search Results</h3>
+        <a (click)="removeSearchResults()" class="btn btn-danger pull-right search-result-remove-btn">
+          <span class="glyphicon glyphicon-remove"></span>
+        </a>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div *ngFor="let person of injectedService.sharedSearchResultPeople, let i = index">
+          <div class="col-md-2 text-center arrange">
+            <a href="#" routerLink="/person/{{person.id}}" >
+              <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
+            </a>
+            <h4 class="text-center">{{person.name}}</h4>
+            <p class="text-center"><strong>Rating: </strong>{{person.popularity}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -29,9 +29,9 @@ export class MoviesDetailComponent implements OnInit {
 
     this.route.params
       .map(params => params['id'])
-      .subscribe(() => {this.injectedService.setSharedSearchResult([]); window.scrollTo(0,0);});
+      .subscribe(() => {this.injectedService.setSharedSearchResultMovie([]); window.scrollTo(0,0);});
 
-    this.injectedService.setSharedSearchResult([]);
+    this.injectedService.setSharedSearchResultMovie([]);
   }
 
 }

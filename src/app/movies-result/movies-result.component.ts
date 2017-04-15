@@ -14,7 +14,7 @@ export class MoviesResultComponent implements OnInit {
   }
 
   public removeSearchResults() {
-    this.injectedService.setSharedSearchResult([]);
+    this.injectedService.setSharedSearchResultMovie([]);
   }
 
 }

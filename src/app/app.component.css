@@ -1,5 +1,16 @@
-h1, p, a {
+ @import url('https://fonts.googleapis.com/css?family=Fascinate+Inline');
+ @import url('https://fonts.googleapis.com/css?family=Amatic+SC|Gloria+Hallelujah|Orbitron|Pacifico|Russo+One');
+
+h1  {
     font-family: 'Fascinate Inline', cursive;
+}
+
+p {
+    font-family: 'Pacifico', cursive;
+}
+
+a {
+    font-family: 'Orbitron'
 }
 
 .container {
@@ -22,7 +33,7 @@ body {
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+    font-family: 'Pacifico', cursive;
     font-size: 14px;
     line-height: 1.5;
     color: #24292e;
@@ -83,3 +94,4 @@ body {
 .search-result-remove-btn {
   margin-top: -45px;
 }
+
