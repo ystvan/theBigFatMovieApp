@@ -1,22 +1,22 @@
 <div *ngIf="injectedService.sharedSearchResultMovie.length > 1">
-<div class="panel panel-default">
+  <div class="panel panel-default">
     <div class="panel-heading">
       <h3>Search Results</h3>
-        <a (click)="removeSearchResults()" class="btn btn-danger pull-right search-result-remove-btn">
-          <span class="glyphicon glyphicon-remove"></span>
-        </a>
+      <a (click)="removeSearchResults()" class="btn btn-danger pull-right search-result-remove-btn">
+        <span class="glyphicon glyphicon-remove"></span>
+      </a>
     </div>
     <div class="panel-body">
       <div class="row">
         <div *ngFor="let movie of injectedService.sharedSearchResultMovie, let i = index">
           <div class="col-md-2 text-center arrange">
-            <a href="#" routerLink="/movie/{{movie.id}}" >
+            <a href="#" routerLink="/movie/{{movie.id}}">
               <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
               <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
             </a>
             <p class="text-center">{{movie.title}}</p>
             <!--Example usage of angular built-in pipes-->
-          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
+            <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
           </div>
         </div>
       </div>

@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
-                                        <!-- example of Property binding -->
-                                        <!-- This will appear as the user types into the search input  -->
+      <!-- example of Property binding -->
+      <!-- This will appear as the user types into the search input  -->
       <h3><label><span *ngIf="searchQuery" [innerHTML]="'You are searching for ' + searchQuery"></span></label></h3>
     </div>
     <div class="panel-body">
@@ -10,29 +10,34 @@
         <div class="row">
           <div class="col-md-6">
             <div class="input-group">
-                                                                                                                      <!--    Two-way data binding    -->
-              <input name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
-                (keyup)=autocompleteSearchMovies() (keyup.enter)="autocompleteSearchMovies()">
+              <!--    Two-way data binding    -->
+              <input #myInput name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
+                (keyup)="autocompleteSearchMovies()">
               <span class="input-group-btn">
               <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
             </span>
 
-            </div> <!-- end of search input -->
+            </div>
+            <!-- end of search input -->
             <div class="suggestions" *ngIf="autocompleteMovies.length > 0">
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
-                <li class="searchlist-item" *ngFor="let movie of autocompleteMovies" (click)="select(movie.title)">
+                
+                <li class="searchlist-item" *ngFor="let movie of autocompleteMovies">
+                  <a (click)="select(movie.title)" >
                   <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
                   <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\app\shared\img\noposter.jpg'>
                   <div class="searchlist-info">
-                                              <!--property bindings-->
+                    <!--property bindings-->
                     <h4 class="searchlist-title">{{movie.title}}</h4> <br>
                     <!--Example usage of angular built-in pipes-->
                     <p class="searchlist-release">Release date: {{movie.release_date | date:'fullDate'}}</p>
                   </div>
+                  </a>
                 </li>
               </ul>
-            </div> <!--  end of dropdown realtime suggestions -->
+            </div>
+            <!--  end of dropdown realtime suggestions -->
           </div>
         </div>
       </form>
@@ -48,14 +53,14 @@
 <br>
 
 <app-movies-result>
-<!--nice example of a Sub-Component-->
+  <!--nice example of a Sub-Component-->
 </app-movies-result>
 
 
 
 <div class="panel panel-default">
 
-  <div class="panel-heading">  
+  <div class="panel-heading">
     <h2>Movies you can catch right now in the local cinemas</h2>
   </div>
 
@@ -115,7 +120,7 @@
           <!--<p class="text-center" ><strong>Rating: </strong><app-review [rating]="movie.vote_average" (ratingClicked)="onRatingClicked($event)"></app-review></p>-->
 
           <!--Example usage of angular built-in pipes-->
-         <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>

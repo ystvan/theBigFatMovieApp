@@ -19,3 +19,7 @@ li strong {
 a {
   font-family: 'Orbitron', cursive;
 }
+
+a + p {
+  color: goldenrod;
+}
