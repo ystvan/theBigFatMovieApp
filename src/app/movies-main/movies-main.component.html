@@ -22,7 +22,8 @@
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
                 <li class="searchlist-item" *ngFor="let movie of autocompleteMovies" (click)="select(movie.title)">
-                  <img class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
+                  <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
+                  <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\app\shared\img\noposter.jpg'>
                   <div class="searchlist-info">
                                               <!--property bindings-->
                     <h4 class="searchlist-title">{{movie.title}}</h4> <br>
@@ -64,6 +65,7 @@
         <div *ngIf="i <= 11" class="col-md-2 text-center">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
           <!--Example usage of angular built-in pipes-->
@@ -84,6 +86,7 @@
         <div *ngIf="i <= 5" class="col-md-2 text-center">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
           <!--Example usage of angular built-in pipes-->
@@ -104,6 +107,7 @@
         <div *ngIf="i <= 11" class="col-md-2 text-center">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
 

@@ -10,6 +10,7 @@
 
         <div class="col-md-6">
           <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w500/{{movie.poster_path}}">
+           <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
         </div>
 
         <div class="col-md-6">
@@ -65,6 +66,7 @@
               <a href="#" routerLink="/movie/{{movie.id}}" >
                 <img *ngIf="movie.poster_path" class="img-thumbnail" 
                       src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+                      <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
               </a>
               <p class="text-center">{{movie.title}}</p>
             </div>
