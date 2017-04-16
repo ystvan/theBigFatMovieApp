@@ -15,22 +15,24 @@
         <div class="col-md-6">
           <ul class="list-group">
             <li class="list-group-item">
-              <strong>Original Title:</strong> {{movie.original_title}}
+              <strong>Original Title:</strong> {{movie.original_title | uppercase}}
             </li>
             <li class="list-group-item">
               <strong>Plot:</strong> {{movie.overview}}
             </li>
             <li class="list-group-item">
-              <strong>Budget:</strong> {{movie.budget}}
+              <!--Example usage of angular built-in pipes-->
+              <strong>Budget:</strong> {{movie.budget | currency:'USD':true}}
             </li>
             <li class="list-group-item">
               <strong>Genres:</strong> <span *ngFor="let gen of movie.genres">{{gen.name}} </span>
             </li>
             <li class="list-group-item">
-              <strong>Release Date:</strong> {{movie.release_date}}
+              <strong>Release Date:</strong> {{movie.release_date | date:'fullDate'}}
             </li>
             <li class="list-group-item">
-              <strong>Rating:</strong> {{movie.vote_average}}
+              <!--Example usage of angular built-in pipes-->
+              <strong>Rating:</strong> {{movie.vote_average | number:'1.1-3'}}
             </li>
             <li class="list-group-item">
               <strong>Rating count:</strong> {{movie.vote_count}}
@@ -54,7 +56,7 @@
   <div *ngIf="similarMovies.length > 0">
     <div class="panel panel-default">
       <div class="panel-heading">
-      <h3 class="text-center">Recommended Movies</h3>
+      <h3 class="text-center">Similar Movies</h3>
       </div>
       <div class="panel-body">
         <div class="row">

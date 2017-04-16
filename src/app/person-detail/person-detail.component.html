@@ -15,16 +15,16 @@
         <div class="col-md-6">
           <ul class="list-group">
             <li class="list-group-item">
-              <strong>Name: </strong> {{person.name}}
+              <strong>Name: </strong> {{person.name | uppercase }}
             </li>
             <li class="list-group-item">
               <strong>biography:</strong> {{person.biography}}
             </li>
             <li class="list-group-item">
-              <strong>Birthday: </strong> {{person.birthday}}
+              <strong>Birthday: </strong> {{person.birthday | date:'fullDate' }}
             </li>
             <li class="list-group-item">
-              <strong>Popularity: </strong> {{person.popularity}}
+              <strong style="color: goldenrod;">Popularity Index: </strong> {{person.popularity | number:'1.1-2' }} &#9733;
             </li>
             
           </ul>

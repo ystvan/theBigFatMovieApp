@@ -25,8 +25,9 @@
                   <img class="searchlist-img" src="https://image.tmdb.org/t/p/w185/{{person.profile_path}}">
                   <div class="searchlist-info">
                                               <!--property bindings-->
-                    <p class="searchlist-name">{{person.name}}</p>
-                    <p class="searchlist-birthday">{{person.popularity}}</p>
+                    <p class="searchlist-name">{{person.name}}</p> <br>
+                    <!--Example usage of angular built-in pipes-->
+                    <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{person.popularity | number:'1.1-2'}}</p>
                   </div>
                 </li>
               </ul>
@@ -60,7 +61,8 @@
             <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
           </a>
           <p class="text-center">{{person.name}}</p>
-          <p class="text-center"><strong>&#9733; </strong>{{person.popularity}}</p>
+          <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{person.popularity | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>

@@ -25,8 +25,9 @@
                   <img class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
                   <div class="searchlist-info">
                                               <!--property bindings-->
-                    <p class="searchlist-title">{{movie.title}}</p>
-                    <p class="searchlist-release">Release date: {{movie.release_date}}</p>
+                    <h4 class="searchlist-title">{{movie.title}}</h4> <br>
+                    <!--Example usage of angular built-in pipes-->
+                    <p class="searchlist-release">Release date: {{movie.release_date | date:'fullDate'}}</p>
                   </div>
                 </li>
               </ul>
@@ -65,7 +66,8 @@
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
           <p class="text-center">{{movie.title}}</p>
-          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+          <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>
@@ -84,7 +86,8 @@
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
           </a>
           <p class="text-center">{{movie.title}}</p>
-          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+          <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>
@@ -106,7 +109,9 @@
 
           <!--Turning rating numbers into stars are not working yet unfortunately-->
           <!--<p class="text-center" ><strong>Rating: </strong><app-review [rating]="movie.vote_average" (ratingClicked)="onRatingClicked($event)"></app-review></p>-->
-          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+
+          <!--Example usage of angular built-in pipes-->
+         <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>

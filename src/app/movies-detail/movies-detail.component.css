@@ -15,3 +15,7 @@ p, ul, li {
 li strong {
     color: goldenrod;
 }
+
+a {
+  font-family: 'Orbitron', cursive;
+}

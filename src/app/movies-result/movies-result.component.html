@@ -14,6 +14,8 @@
               <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
             </a>
             <p class="text-center">{{movie.title}}</p>
+            <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
           </div>
         </div>
       </div>
