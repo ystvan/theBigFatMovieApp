@@ -79,3 +79,12 @@ ul {
   font-weight: 400;
   margin-top: 0;
 }
+
+.img-thumbnail {
+  padding: -5px;
+}
+
+.cards {
+  padding-top: 10px;
+  float: left;
+}

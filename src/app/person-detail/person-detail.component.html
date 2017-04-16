@@ -1,4 +1,4 @@
-<app-person-result></app-person-result> 
+<app-person-result></app-person-result>
 
 <div *ngIf="person">
   <div class="panel panel-default">
@@ -10,29 +10,30 @@
 
         <div class="col-md-6">
           <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w500/{{person.profile_path}}">
+          <img *ngIf="!person.profile_path" class="img-thumbnail" src='src\app\shared\img\noposterperson.jpg'>
         </div>
 
         <div class="col-md-6">
           <ul class="list-group">
             <li class="list-group-item">
-              <strong>Name: </strong> {{person.name}}
+              <strong>Name: </strong> {{person.name | uppercase }}
             </li>
             <li class="list-group-item">
               <strong>biography:</strong> {{person.biography}}
             </li>
             <li class="list-group-item">
-              <strong>Birthday: </strong> {{person.birthday}}
+              <strong>Born: </strong> {{person.birthday | date:'fullDate' }}
+            </li>
+             <li class="list-group-item" *ngIf="person.deathday">
+              <strong>Died: </strong> {{person.deathday | date:'fullDate' }}
             </li>
             <li class="list-group-item">
-              <strong>Popularity: </strong> {{person.popularity}}
+              <strong style="color: goldenrod;">Popularity Index: </strong> {{person.popularity | number:'1.1-2' }} &#9733;
             </li>
-            
+
           </ul>
 
-        <a href="#" routerLink="/person-main" class="btn btn-primary btn-lg btn-block">Back to persons</a>
-       
-       
-
+          <a href="#" routerLink="/person-main" class="btn btn-primary btn-lg btn-block">Back to persons</a>
 
           <hr />
 
@@ -42,10 +43,10 @@
     </div>
   </div>
 
-<div>
+  <div>
     <div class="panel panel-default">
       <div class="panel-heading">
-      <h3 class="text-center">Appears In</h3>
+        <h3 class="text-center">Appears In</h3>
       </div>
       <div class="panel-body">
         <div class="row">
@@ -53,9 +54,11 @@
             <div *ngIf="i < 18" class="col-md-2 text-center">
 
               <!-- Not getting the movie path url with the movie_credits response: TODO: how to do 'sub-*Ngfor??' resarch: is it possible?-->
-              <a href="#" routerLink="/movie/{{movie.id}}" >
+              <!-- With multiple request in the code behind TS file, but then some funky cross referencing would needed too, in the future might do it-->
+              <a href="#" routerLink="/movie/{{movie.id}}">
 
                 <img *ngIf="cast.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{cast.poster_path}}">
+                <img *ngIf="cast.profile_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
               </a>
               <h4 class="text-center">{{cast.title}}</h4>
               <p class="text-center" style="color: brown;">{{cast.character}}</p>
@@ -65,4 +68,3 @@
       </div>
     </div>
   </div>
-  

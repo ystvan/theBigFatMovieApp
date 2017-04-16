@@ -1,8 +1,8 @@
 <div class="container-fluid">
   <div class="panel panel-default">
     <div class="panel-heading">
-                                        <!-- example of Property binding -->
-                                        <!-- This will appear as the user types into the search input  -->
+      <!-- example of Property binding -->
+      <!-- This will appear as the user types into the search input  -->
       <h3><label><span *ngIf="searchQuery" [innerHTML]="'You are searching for ' + searchQuery"></span></label></h3>
     </div>
     <div class="panel-body">
@@ -10,27 +10,34 @@
         <div class="row">
           <div class="col-md-6">
             <div class="input-group">
-                                                                                                                      <!--    Two-way data binding    -->
+              <!--    Two-way data binding    -->
               <input name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
-                (keyup)=autocompleteSearchMovies() (keyup.enter)="autocompleteSearchMovies()">
+                (keyup)="autocompleteSearchMovies()" (keyup.enter)="autocompleteSearchMovies()">
               <span class="input-group-btn">
-              <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
+              <button class="btn btn-default search-button" type="submit">Search</button>
             </span>
 
-            </div> <!-- end of search input -->
+            </div>
+            <!-- end of search input -->
             <div class="suggestions" *ngIf="autocompleteMovies.length > 0">
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
-                <li class="searchlist-item" *ngFor="let movie of autocompleteMovies" (click)="select(movie.title)">
-                  <img class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
+                
+                <li class="searchlist-item" *ngFor="let movie of autocompleteMovies">
+                  <a (click)="select(movie.title); searchMovies();" >
+                  <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
+                  <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\app\shared\img\noposter.jpg'>
                   <div class="searchlist-info">
-                                              <!--property bindings-->
-                    <p class="searchlist-title">{{movie.title}}</p>
-                    <p class="searchlist-release">Release date: {{movie.release_date}}</p>
+                    <!--property bindings-->
+                    <h4 class="searchlist-title">{{movie.title}}</h4> <br>
+                    <!--Example usage of angular built-in pipes-->
+                    <p class="searchlist-release">Release date: {{movie.release_date | date:'fullDate'}}</p>
                   </div>
+                  </a>
                 </li>
               </ul>
-            </div> <!--  end of dropdown realtime suggestions -->
+            </div>
+            <!--  end of dropdown realtime suggestions -->
           </div>
         </div>
       </form>
@@ -46,26 +53,28 @@
 <br>
 
 <app-movies-result>
-<!--nice example of a Sub-Component-->
+  <!--nice example of a Sub-Component-->
 </app-movies-result>
 
 
 
 <div class="panel panel-default">
 
-  <div class="panel-heading">  
+  <div class="panel-heading">
     <h2>Movies you can catch right now in the local cinemas</h2>
   </div>
 
   <div class="panel-body">
     <div class="row" *ngIf="nowPlayingMovies">
       <div *ngFor="let movie of nowPlayingMovies, let i = index">
-        <div *ngIf="i <= 11" class="col-md-2 text-center">
+        <div *ngIf="i <= 11" class="col-md-2 text-center cards">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
-          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+          <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>
@@ -79,12 +88,14 @@
   <div class="panel-body">
     <div class="row" *ngIf="topRatedMovies">
       <div *ngFor="let movie of topRatedMovies, let i = index">
-        <div *ngIf="i <= 5" class="col-md-2 text-center">
+        <div *ngIf="i <= 5" class="col-md-2 text-center cards">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
-          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+          <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>
@@ -98,15 +109,18 @@
   <div class="panel-body">
     <div class="row" *ngIf="upComingMovies">
       <div *ngFor="let movie of upComingMovies, let i = index">
-        <div *ngIf="i <= 11" class="col-md-2 text-center">
+        <div *ngIf="i < 17" class="col-md-2 text-center cards">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
 
           <!--Turning rating numbers into stars are not working yet unfortunately-->
           <!--<p class="text-center" ><strong>Rating: </strong><app-review [rating]="movie.vote_average" (ratingClicked)="onRatingClicked($event)"></app-review></p>-->
-          <p class="text-center"><strong>&#9733; </strong>{{movie.vote_average}}</p>
+
+          <!--Example usage of angular built-in pipes-->
+          <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{movie.vote_average | number:'1.1-2'}}</p>
         </div>
       </div>
     </div>
