@@ -22,7 +22,10 @@
               <strong>biography:</strong> {{person.biography}}
             </li>
             <li class="list-group-item">
-              <strong>Birthday: </strong> {{person.birthday | date:'fullDate' }}
+              <strong>Born: </strong> {{person.birthday | date:'fullDate' }}
+            </li>
+             <li class="list-group-item" *ngIf="person.deathday">
+              <strong>Died: </strong> {{person.deathday | date:'fullDate' }}
             </li>
             <li class="list-group-item">
               <strong style="color: goldenrod;">Popularity Index: </strong> {{person.popularity | number:'1.1-2' }} &#9733;
