@@ -1,4 +1,4 @@
-<app-movies-result></app-movies-result> 
+<!--<app-movies-result></app-movies-result> -->
 
 <div *ngIf="movie">
   <div class="panel panel-default">
@@ -44,7 +44,8 @@
 
           <hr />
 
-          <a *ngIf="movie.homepage" href="{{movie.homepage}}" target="_blank" class="btn btn-info btn-lg btn-block">Movie Homepage</a>
+          <a *ngIf="movie.homepage" href="{{movie.homepage}}" 
+              target="_blank" class="btn btn-info btn-lg btn-block">Movie Homepage</a>
         </div>
       </div>
     </div>
@@ -60,7 +61,8 @@
           <div *ngFor="let movie of similarMovies, let i = index">
             <div *ngIf="i < 6" class="col-md-2 text-center">
               <a href="#" routerLink="/movie/{{movie.id}}" >
-                <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+                <img *ngIf="movie.poster_path" class="img-thumbnail" 
+                      src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
               </a>
               <p class="text-center">{{movie.title}}</p>
             </div>

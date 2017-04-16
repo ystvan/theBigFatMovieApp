@@ -27,7 +27,7 @@ export class PersonDetailComponent implements OnInit {
     this.route.params
       .map(params => params['id'])
       .switchMap(id => this.injectedService.getPersonMovieCredits(id))
-      .subscribe(response => this.movieCredits = response.results);
+      .subscribe(response => this.movieCredits = response.cast);
 
     this.route.params
       .map(params => params['id'])
