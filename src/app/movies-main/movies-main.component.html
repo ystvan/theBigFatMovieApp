@@ -22,17 +22,17 @@
             <div class="suggestions" *ngIf="autocompleteMovies.length > 0">
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
-                
+
                 <li class="searchlist-item" *ngFor="let movie of autocompleteMovies">
-                  <a (click)="select(movie.title); searchMovies();" >
-                  <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
-                  <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\app\shared\img\noposter.jpg'>
-                  <div class="searchlist-info">
-                    <!--property bindings-->
-                    <h4 class="searchlist-title">{{movie.title}}</h4> <br>
-                    <!--Example usage of angular built-in pipes-->
-                    <p class="searchlist-release">Release date: {{movie.release_date | date:'fullDate'}}</p>
-                  </div>
+                  <a (click)="select(movie.title); searchMovies();">
+                    <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
+                    <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\app\shared\img\noposter.jpg'>
+                    <div class="searchlist-info">
+                      <!--property bindings-->
+                      <h4 class="searchlist-title">{{movie.title}}</h4> <br>
+                      <!--Example usage of angular built-in pipes-->
+                      <p class="searchlist-release">Release date: {{movie.release_date | date:'fullDate'}}</p>
+                    </div>
                   </a>
                 </li>
               </ul>

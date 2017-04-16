@@ -6,7 +6,7 @@ import { Component, OnChanges, Input, Output, EventEmitter } from '@angular/core
   styleUrls: ['./review.component.css']
 })
 export class ReviewComponent implements OnChanges {
-  @Input()rating: number;
+  @Input() rating: number;
   @Output() ratingClicked: EventEmitter<string> = new EventEmitter<string>();
 
   reviewWidth: number; //calculated on Change

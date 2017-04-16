@@ -35,18 +35,6 @@ export class PersonDetailComponent implements OnInit {
 
     this.injectedService.setSharedSearchResultPeople([]);
 
-    // Trying to get moviecredits to fill up "Appears in part"
-
-    // this.route.params
-    //   .map(params => params['id'])
-    //   .switchMap(id => this.injectedService.getMovieDetails(id))
-    //   .subscribe(result => this.movie = result);
-
-    // this.route.params
-    //   .map(params => params['id'])
-    //   .subscribe(() => { this.injectedService.setSharedSearchResultMovie([]); window.scrollTo(0, 0); });
-
-    // this.injectedService.setSharedSearchResultMovie([]);
   }
 
 }

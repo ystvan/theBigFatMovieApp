@@ -54,7 +54,7 @@ export class MoviesMainComponent implements OnInit {
       })
   }
 
-// the drop down list, used for autocomplete after 3 characters with the matching criteria
+  // the drop down list, used for autocomplete after 3 characters with the matching criteria
 
   autocompleteSearchMovies() {
     if (this.searchQuery.length > 2) {
