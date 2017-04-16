@@ -11,10 +11,10 @@
           <div class="col-md-6">
             <div class="input-group">
               <!--    Two-way data binding    -->
-              <input #myInput name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
-                (keyup)="autocompleteSearchMovies()">
+              <input name="searchQuery" type="text" class="form-control" placeholder="search for movie title" autocomplete="off" [(ngModel)]="searchQuery"
+                (keyup)="autocompleteSearchMovies()" (keyup.enter)="autocompleteSearchMovies()">
               <span class="input-group-btn">
-              <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
+              <button class="btn btn-default search-button" type="submit">Search</button>
             </span>
 
             </div>
@@ -24,7 +24,7 @@
                 <!--Usage of my custom pipe as a helper filter-->
                 
                 <li class="searchlist-item" *ngFor="let movie of autocompleteMovies">
-                  <a (click)="select(movie.title)" >
+                  <a (click)="select(movie.title); searchMovies();" >
                   <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
                   <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\app\shared\img\noposter.jpg'>
                   <div class="searchlist-info">

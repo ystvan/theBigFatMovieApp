@@ -14,7 +14,7 @@
               <input name="searchQuery" type="text" class="form-control" placeholder="search for names" autocomplete="off" [(ngModel)]="searchQuery"
                 (keyup)=autocompleteSearchPeople() (keyup.enter)="autocompleteSearchPeople()">
               <span class="input-group-btn">
-              <button class="btn btn-default search-button" type="submit">Press Search!!!</button>
+              <button class="btn btn-default search-button" type="submit">Search</button>
             </span>
 
             </div>
@@ -22,7 +22,8 @@
             <div class="suggestions" *ngIf="autocompletePeople.length > 0">
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
-                <li class="searchlist-item" *ngFor="let person of autocompletePeople" (click)="select(person.name)">
+                <li class="searchlist-item" *ngFor="let person of autocompletePeople">
+                  <a (click)="select(person.name); searchPeople();">
                   <img *ngIf="person.profile_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w185/{{person.profile_path}}">
                   <img *ngIf="!person.profile_path" class="searchlist-img" src='src\app\shared\img\noposterperson.jpg'>
                   <div class="searchlist-info">
@@ -31,6 +32,7 @@
                     <!--Example usage of angular built-in pipes-->
                     <p class="text-center"><strong style="color: goldenrod;">&#9733; </strong>{{person.popularity | number:'1.1-2'}}</p>
                   </div>
+                  </a>
                 </li>
               </ul>
             </div>
