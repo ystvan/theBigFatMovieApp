@@ -19,6 +19,16 @@ ul {
       list-style-type: none;
 }
 
+p, ul, li {
+  
+  font-family: 'Gloria Hallelujah', cursive; 
+  
+}
+
+li strong {
+    color: goldenrod;
+}
+
 
 .searchlist {
   position: absolute;

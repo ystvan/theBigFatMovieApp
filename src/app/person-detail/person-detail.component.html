@@ -50,12 +50,15 @@
       <div class="panel-body">
         <div class="row">
           <div *ngFor="let cast of movieCredits, let i = index">
-            <div *ngIf="i < 6" class="col-md-2 text-center">
+            <div *ngIf="i < 18" class="col-md-2 text-center">
+
+              <!-- Not getting the movie path url with the movie_credits response: TODO: how to do 'sub-*Ngfor??' resarch: is it possible?-->
               <a href="#" routerLink="/movie/{{movie.id}}" >
+
                 <img *ngIf="cast.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{cast.poster_path}}">
               </a>
-              <p class="text-center">{{cast.title}}</p>
-              <p class="text-center">{{cast.character}}</p>
+              <h4 class="text-center">{{cast.title}}</h4>
+              <p class="text-center" style="color: brown;">{{cast.character}}</p>
             </div>
           </div>
         </div>

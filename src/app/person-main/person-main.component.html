@@ -22,11 +22,11 @@
               <ul class="searchlist">
                 <!--Usage of my custom pipe as a helper filter-->
                 <li class="searchlist-item" *ngFor="let person of autocompletePeople" (click)="select(person.name)">
-                  <img class="searchlist-img" src="http://image.tmdb.org/t/p/w45/{{person.profile_path}}">
+                  <img class="searchlist-img" src="https://image.tmdb.org/t/p/w185/{{person.profile_path}}">
                   <div class="searchlist-info">
                                               <!--property bindings-->
                     <p class="searchlist-name">{{person.name}}</p>
-                    <p class="searchlist-birthday">{{person.name}}</p>
+                    <p class="searchlist-birthday">{{person.popularity}}</p>
                   </div>
                 </li>
               </ul>
@@ -60,6 +60,7 @@
             <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
           </a>
           <p class="text-center">{{person.name}}</p>
+          <p class="text-center"><strong>&#9733; </strong>{{person.popularity}}</p>
         </div>
       </div>
     </div>
