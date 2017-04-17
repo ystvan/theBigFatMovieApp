@@ -14,8 +14,8 @@ export class MyMovieContentsService {
 
   //using JSONP (as in "JSON with Padding") to bypass cross-domain policies (CORS) in web browsers
   private jsonpCallback = '?callback=JSONP_CALLBACK';
-  private sharedSearchResultMovie: Array<Object> = [];
-  private sharedSearchResultPeople: Array<Object> = [];
+  public sharedSearchResultMovie: Array<Object> = [];
+  public sharedSearchResultPeople: Array<Object> = [];
 
   constructor(private jsonp: Jsonp) {
     console.log('successful service')

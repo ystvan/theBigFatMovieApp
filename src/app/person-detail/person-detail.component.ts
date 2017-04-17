@@ -9,9 +9,9 @@ import 'rxjs/Rx';
   styleUrls: ['./person-detail.component.css']
 })
 export class PersonDetailComponent implements OnInit {
-  private person: any = {};
-  private movie: any = {};
-  private movieCredits: Array<Object> = [];
+  public person: any = {};
+  public movie: any = {};
+  public movieCredits: Array<Object> = [];
 
   constructor(private injectedService: MyMovieContentsService, private route: ActivatedRoute) { }
 

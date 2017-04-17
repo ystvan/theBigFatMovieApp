@@ -8,7 +8,7 @@ import { MyMovieContentsService } from '../my-movie-contents.service';
 })
 export class PersonResultComponent implements OnInit {
 
-  constructor(private injectedService: MyMovieContentsService) { }
+  constructor(public injectedService: MyMovieContentsService) { }
 
   ngOnInit() {
   }
