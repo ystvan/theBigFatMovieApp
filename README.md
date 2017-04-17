@@ -2,10 +2,6 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.0.0.
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
 ## Side infos
 
 This single page app was made for an "HTML5 and Javascript frameworks" lecture, as a 3rd mandatory assignment.
@@ -23,3 +19,15 @@ e) The app should use a HttpService (you are most welcome to use FireBase as Bac
 f) The app should use Interface, Observable/subscribe( ), map( ) and filter( ) (RxJS)
 
 ## The app was made by using the free API services of THEMOVIEDB.ORG
+
+a great tool to test APIs:
+https://www.getpostman.com/
+
+## Some of the biggest take-aways for deployment & production:
+
+https://github.com/angular/angular-cli/wiki/build
+https://github.com/angular/angular-cli/issues/1661
+https://docs.microsoft.com/en-us/azure/app-service-web/app-service-deploy-ftp
+
+## For hints and ideas special thanks goes to:
+https://github.com/tomasmax
