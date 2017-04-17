@@ -12,7 +12,7 @@
           <div class="col-md-2 text-center arrange">
             <a href="#" routerLink="/person/{{person.id}}">
               <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
-              <img *ngIf="!person.profile_path" class="img-thumbnail" src='src\app\shared\img\noposterperson.jpg'>
+              <img *ngIf="!person.profile_path" class="img-thumbnail" src='assets\img\noposterperson.jpg'>
             </a>
             <p class="text-center">{{person.name}}</p>
           </div>

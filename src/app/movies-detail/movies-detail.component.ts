@@ -9,8 +9,8 @@ import 'rxjs/Rx';
   styleUrls: ['./movies-detail.component.css']
 })
 export class MoviesDetailComponent implements OnInit {
-  private similarMovies: Array<Object> = [];
-  private movie: any = {};
+  public similarMovies: Array<Object> = [];
+  public movie: any = {};
 
   constructor(private injectedService: MyMovieContentsService, private route: ActivatedRoute) { }
 

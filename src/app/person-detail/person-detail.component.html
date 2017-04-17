@@ -10,7 +10,7 @@
 
         <div class="col-md-6">
           <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w500/{{person.profile_path}}">
-          <img *ngIf="!person.profile_path" class="img-thumbnail" src='src\app\shared\img\noposterperson.jpg'>
+          <img *ngIf="!person.profile_path" class="img-thumbnail" src='assets\img\noposterperson.jpg'>
         </div>
 
         <div class="col-md-6">
@@ -58,7 +58,7 @@
               
 
                 <img *ngIf="cast.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{cast.poster_path}}">
-                <img *ngIf="cast.profile_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
+                <img *ngIf="cast.profile_path" class="img-thumbnail" src='assets\img\noposter.jpg'>
             
               <h4 class="text-center">{{cast.title}}</h4>
               <p class="text-center" style="color: brown;">{{cast.character}}</p>

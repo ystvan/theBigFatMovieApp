@@ -25,7 +25,7 @@
                 <li class="searchlist-item" *ngFor="let person of autocompletePeople">
                   <a (click)="select(person.name); searchPeople();">
                     <img *ngIf="person.profile_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w185/{{person.profile_path}}">
-                    <img *ngIf="!person.profile_path" class="searchlist-img" src='src\app\shared\img\noposterperson.jpg'>
+                    <img *ngIf="!person.profile_path" class="searchlist-img" src='assets\img\noposterperson.jpg'>
                     <div class="searchlist-info">
                       <!--property bindings-->
                       <p class="searchlist-name">{{person.name}}</p> <br>
@@ -64,7 +64,7 @@
         <div *ngIf="i < 15" class="col-md-2 text-center cards">
           <a href="#" routerLink="/person/{{person.id}}">
             <img *ngIf="person.profile_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
-            <img *ngIf="!person.profile_path" class="img-thumbnail" src='src\app\shared\img\noposterperson.jpg'>
+            <img *ngIf="!person.profile_path" class="img-thumbnail" src='assets\img\noposterperson.jpg'>
 
           </a>
           <p class="text-center">{{person.name}}</p>
