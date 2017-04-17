@@ -1,4 +1,4 @@
-<app-person-result></app-person-result>
+
 
 <div *ngIf="person">
   <div class="panel panel-default">
@@ -50,16 +50,16 @@
       </div>
       <div class="panel-body">
         <div class="row">
-          <div *ngFor="let cast of movieCredits, let i = index">
-            <div *ngIf="i < 18" class="col-md-2 text-center">
+          <div *ngFor="let cast of movieCredits">
+            <div class="col-md-2 text-center">
 
               <!-- Not getting the movie path url with the movie_credits response: TODO: how to do 'sub-*Ngfor??' resarch: is it possible?-->
               <!-- With multiple request in the code behind TS file, but then some funky cross referencing would needed too, in the future might do it-->
-              <a href="#" routerLink="/movie/{{movie.id}}">
+              
 
                 <img *ngIf="cast.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{cast.poster_path}}">
                 <img *ngIf="cast.profile_path" class="img-thumbnail" src='src\app\shared\img\noposter.jpg'>
-              </a>
+            
               <h4 class="text-center">{{cast.title}}</h4>
               <p class="text-center" style="color: brown;">{{cast.character}}</p>
             </div>
