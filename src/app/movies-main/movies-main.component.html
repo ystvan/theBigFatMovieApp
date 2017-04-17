@@ -26,7 +26,7 @@
                 <li class="searchlist-item" *ngFor="let movie of autocompleteMovies">
                   <a (click)="select(movie.title); searchMovies();">
                     <img *ngIf="movie.poster_path" class="searchlist-img" src="https://image.tmdb.org/t/p/w92/{{movie.poster_path}}">
-                    <img *ngIf="!movie.poster_path" class="searchlist-img" src='src\assets\img\noposter.jpg'>
+                    <img *ngIf="!movie.poster_path" class="searchlist-img" src='assets\img\noposter.jpg'>
                     <div class="searchlist-info">
                       <!--property bindings-->
                       <h4 class="searchlist-title">{{movie.title}}</h4> <br>
@@ -70,7 +70,7 @@
         <div *ngIf="i <= 11" class="col-md-2 text-center cards">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\assets\img\noposter.jpg'>
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='assets\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
           <!--Example usage of angular built-in pipes-->
@@ -91,7 +91,7 @@
         <div *ngIf="i <= 5" class="col-md-2 text-center cards">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\assets\img\noposter.jpg'>
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='assets\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
           <!--Example usage of angular built-in pipes-->
@@ -112,7 +112,7 @@
         <div *ngIf="i < 17" class="col-md-2 text-center cards">
           <a href="#" routerLink="/movie/{{movie.id}}">
             <img *ngIf="movie.poster_path" class="img-thumbnail" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='src\assets\img\noposter.jpg'>
+            <img *ngIf="!movie.poster_path" class="img-thumbnail" src='assets\img\noposter.jpg'>
           </a>
           <p class="text-center">{{movie.title}}</p>
 
